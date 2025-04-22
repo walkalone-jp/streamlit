@@ -1,1 +1,1 @@
-Sorry, this is a Streamlit practice repository.
+Sorry, this is not helpful to anyone.
