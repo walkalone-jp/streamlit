@@ -1,5 +1,6 @@
 import streamlit as st
 import pandas as pd
+from pygwalker.api.streamlit import StreamlitRenderer
 
 # Streamlit UI 設定
 st.set_page_config(page_title="CSV EDA Viewer", layout="wide")
@@ -33,6 +34,7 @@ if uploaded_file is not None:
 
 else:
     st.info("CSVファイルをアップロードしてください")
+
 
 
 
