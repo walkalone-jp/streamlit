@@ -1,10 +1,8 @@
 import streamlit as st
 import pandas as pd
-import pygwalker as pyg
-import streamlit.components.v1 as components
-from pathlib import Path
+from pygwalker.api.streamlit import StreamlitRenderer
 
-# Streamlit UI
+# Streamlit UI 設定
 st.set_page_config(page_title="CSV EDA Viewer", layout="wide")
 st.title("CSV EDA Viewer with Pygwalker")
 
@@ -20,25 +18,9 @@ if uploaded_file is not None:
     else:
         st.success("CSVの読み込みに成功しました")
 
-        # PygwalkerのHTML生成
-        html_content = pyg.to_html(df)
-
-        # ライトモード強制CSS
-        light_mode_css = """
-        <style>
-            :root {
-                color-scheme: light !important;
-            }
-            body[data-theme="dark"] {
-                background: white !important;
-                color: black !important;
-            }
-        </style>
-        """
-
-        # 結合して表示
-        full_html = light_mode_css + html_content
-        components.html(full_html, height=800, scrolling=True)
+        # Pygwalker Streamlit専用レンダラ
+        pyg_app = StreamlitRenderer(df)
+        pyg_app.explorer()
 
         # df.head() 結果表示
         st.markdown("---")
