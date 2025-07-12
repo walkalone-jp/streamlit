@@ -1,5 +1,8 @@
 # CSV EDA Viewer with Pygwalker
 
+### Streamlit
+https://app-pygwalker.streamlit.app/
+
 このプロジェクトは、StreamlitとPygwalkerを使用してCSVファイルの探索的データ分析（EDA）を簡単に行うためのアプリケーションです。
 
 ### 特徴
